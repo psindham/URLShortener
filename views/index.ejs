@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+     rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+     crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DO SHORT URL</h1>   
+    <form action="/shortUrls" method="POST" class="my-4">
+    <input type="url"  name='formurl' id ='formurl'>
+    <button class='btn btn-success' type="submit" >Change</button>
+    </form> 
+    <table class ='table table-responsive'>
+    <thead>
+        <tr>
+            <th>FULL URL</th>
+            <th>Shrinked URL</th>
+            <th>Clicks</th>
+        </tr>
+    </thead>
+    <tbody>
+       <% shortUrls.forEach(shorturl =>{ %>
+        <tr>
+            <td ><a href="<%= shorturl.TEXT %>"><%= shorturl.TEXT %> </a></td>   
+            <td ><a href="<%= shorturl.ID %>"><%= shorturl.ID %> </a></td> 
+            <td><%= shorturl.clicks %></td>   
+        </tr>
+       <% }) %>
+      
+    </tbody>
+    </table>
+</body>
+</html>
